@@ -1,10 +1,18 @@
 <div>
   <div>
     <p>
-      Ingrese el id del candidato
-    </p>
-    <input type="text" [(ngModel)]="id" />
-    <button (click)="buscarPorId()">
+      Nombre del candidato
+     </p>
+    <input type="text" [(ngModel)]="nombre" />
+    <p>
+      Apellido del candidato
+     </p>
+    <input type="text" [(ngModel)]="apellido" />
+    <p>
+      Nombre del binomio
+     </p>
+    <input type="text" [(ngModel)]="nombreBinomio" />
+    <button (click)="ingresarCandidato()">
       Cargar
     </button>
   </div>

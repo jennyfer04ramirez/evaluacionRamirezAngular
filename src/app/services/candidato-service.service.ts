@@ -7,9 +7,13 @@ import { Injectable } from '@angular/core';
 export class CandidatoServiceService {
 
   constructor(private http: HttpClient) {}
-  getCandidato(id:string){
+  getCandidatos(){
     return this.http.get(
-      'http://localhost:3000/evaluacionRmairez/api/candidato/${id}' + id
+      'http://localhost:8080/evaluacionRamirez/api/candidatos/candidato' 
     )
+  }
+
+  ingresarCandidato(data:any){
+    return this.http.post("http://localhost:8080/evaluacionRamirez/api/candidatos", data)
   }
 }

@@ -13,29 +13,31 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent implements OnInit {
   title = 'evaluacionRamirezAngular';
-  id = "";
+  nombre = "";
+  apellido= ""
+  nombreBinomio = ""
   candidato: any;
   binomios:any[] = [];
-
+  candidatos:any[]=[]
   constructor(private service: CandidatoServiceService) {}
 
   ngOnInit(): void {}
 
-  buscarPorId() {
-    if (!this.id) {
-      alert('Debe ingresar un id');
-      return;
-    }
-    this.service.getCandidato(this.id).subscribe(
-      (data) => {
-      (data:any) => {
-      this.candidato = data.candidato;
-      this.binomios = data.binomio;
+  ingresarCandidato (
+    
+  ){
+    const data ={
+      nombre:this.nombre,
+      apellido:this.apellido,
+      binomio:{
+        nombre:this.nombreBinomio
       }
-    },
-    (error) => {
-      console.log(error);
-      alert(error.error);
-    });
+    }
+    this.service.ingresarCandidato(data)
+    .subscribe((api)=>{
+      alert("SE ha ingresado correctamente")
+    }, (error)=>{
+      alert("Error: " + error)
+    })
   }
 }
